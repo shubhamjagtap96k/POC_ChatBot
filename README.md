@@ -36,7 +36,7 @@ An internal chatbot to discover Points of Contact (POC), Team allocations, and S
 
 4.  **Start Backend Server**
     ```powershell
-    python -m uvicorn backend.main:app --reload --host 127.0.0.1 --port 8002
+    python -m uvicorn backend.main:app --reload --host 127.0.0.1 --port 8003
     ```
     *Note: If you want to use the Knowledge Base (RAG) feature, you must manually install the heavy dependencies:*
     ```powershell
@@ -53,7 +53,7 @@ An internal chatbot to discover Points of Contact (POC), Team allocations, and S
       ```powershell
       python -m http.server 3000
       ```
-    - Open your browser to: [http://localhost:3000/frontend/](http://localhost:3000/frontend/)
+    - Open your browser to: [http://localh ost:3000/frontend/](http://localhost:3000/frontend/)
 
 ## How to Make It Smarter (More Questions)
 To handle more complex questions (e.g., "Who handles the iOS app?" which implies "Mobile App"), you need a real LLM like OpenAI GPT-4.

@@ -30,11 +30,19 @@ class DialogManager:
         # --- STATE MACHINE ---
 
         if current_state == STATE_GREETING:
-            # Entry point
-            response = "Hello 👋 I am your POC Finder Assistant. How may I help you today?"
-            next_state = STATE_MENU
+            val = user_input.lower().strip()
+            # If user answers with a selection immediately (ignoring greeting)
+            if val and val not in ["hello", "hi", "start", "init"]:
+                session["state"] = STATE_MENU
+                return self.handle_turn(session, user_input)
+            else:
+                # Standard Greeting
+                response = "Hello 👋 I am your POC Finder Assistant. How may I help you today?"
+                next_state = STATE_MENU
+                session["state"] = next_state
+                return response, next_state
 
-        elif current_state == STATE_MENU:
+        if current_state == STATE_MENU:
             if user_input: 
                 # Check for Option 5 (Docs)
                 if "5" in user_input or "doc" in user_input_lower or "knowledge" in user_input_lower or "general" in user_input_lower:

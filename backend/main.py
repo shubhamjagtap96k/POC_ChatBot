@@ -31,15 +31,14 @@ class ChatResponse(BaseModel):
 @app.post("/ask", response_model=ChatResponse)
 async def chat_endpoint(request: ChatRequest):
     # Get or create session
+    # Get or create session
     session_id = request.session_id
-    if not session_id or session_id not in sessions:
+    if not session_id:
         session_id = str(uuid.uuid4())
-        sessions[session_id] = {"state": "GREETING", "data": {}}
-        # If new session, we might want to return the greeting immediately? 
-        # But the loop expects a user message to trigger a response.
-        # Let's say if session is new, we ignore user input (or treat it as "hello")
-        # and invoke handle_turn to get the greeting.
     
+    if session_id not in sessions:
+        sessions[session_id] = {"state": "GREETING", "data": {}}
+
     session = sessions[session_id]
     
     # Process turn

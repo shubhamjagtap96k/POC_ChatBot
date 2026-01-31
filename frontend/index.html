@@ -130,7 +130,7 @@
             // chatBox.innerHTML += `<div class="message bot-msg" id="typing">...</div>`;
 
             try {
-                const response = await fetch('http://localhost:8001/ask', {
+                const response = await fetch('http://localhost:8002/ask', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ message: question, session_id: sessionId })

@@ -36,9 +36,12 @@ An internal chatbot to discover Points of Contact (POC), Team allocations, and S
 
 4.  **Start Backend Server**
     ```powershell
-    python -m uvicorn backend.main:app --reload --host 127.0.0.1 --port 8001
+    python -m uvicorn backend.main:app --reload --host 127.0.0.1 --port 8002
     ```
-    *Keep this terminal window OPEN. It is the server.*
+    *Note: If you want to use the Knowledge Base (RAG) feature, you must manually install the heavy dependencies:*
+    ```powershell
+    pip install chromadb sentence-transformers
+    ```
 
 5.  **Run Frontend**
     - Open a **new** PowerShell window.
